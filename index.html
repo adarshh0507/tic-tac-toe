@@ -21,6 +21,209 @@
   
   ============================================
 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <button id="theme-btn" class="theme-btn" title="Toggle Dark/Light Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Game Mode Selection Screen -->
+        <div class="screen" id="mode-screen">
+            <div class="mode-container">
+                <h1>Tic-Tac-Toe Ultimate</h1>
+                <p class="subtitle">Choose Your Game Mode</p>
+                
+                <div class="mode-buttons">
+                    <button class="mode-btn single-player-btn" id="single-player-mode">
+                        <i class="fas fa-robot"></i>
+                        <span>Single Player</span>
+                        <p class="mode-desc">Play vs AI</p>
+                    </button>
+                    
+                    <button class="mode-btn two-player-btn" id="two-player-mode">
+                        <i class="fas fa-users"></i>
+                        <span>Two Players</span>
+                        <p class="mode-desc">Play with Friend</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Single Player Setup Screen -->
+        <div class="screen" id="single-setup-screen">
+            <div class="setup-container">
+                <h2>Play vs AI</h2>
+                <p>Choose your symbol</p>
+                
+                <div class="symbol-choice">
+                    <button class="symbol-btn" id="single-x-btn">
+                        <span class="symbol">X</span>
+                        <p>Play as X</p>
+                    </button>
+                    <button class="symbol-btn" id="single-o-btn">
+                        <span class="symbol">O</span>
+                        <p>Play as O</p>
+                    </button>
+                </div>
+
+                <button class="btn btn-back" id="back-from-single">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+
+        <!-- Two Player Setup Screen -->
+        <div class="screen" id="two-setup-screen">
+            <div class="setup-container">
+                <h2>Two Players Setup</h2>
+                
+                <div class="player-setup">
+                    <!-- Player 1 -->
+                    <div class="player-form">
+                        <h3>Player 1</h3>
+                        <input type="text" id="player1-name" placeholder="Enter your name" maxlength="15">
+                        
+                        <label>Choose Symbol:</label>
+                        <div class="symbol-options">
+                            <button class="symbol-option" data-player="1" data-symbol="X">
+                                <span class="symbol">X</span>
+                            </button>
+                            <button class="symbol-option" data-player="1" data-symbol="O">
+                                <span class="symbol">O</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Player 2 -->
+                    <div class="player-form">
+                        <h3>Player 2</h3>
+                        <input type="text" id="player2-name" placeholder="Enter your name" maxlength="15">
+                        
+                        <label>Choose Symbol:</label>
+                        <div class="symbol-options">
+                            <button class="symbol-option" data-player="2" data-symbol="X">
+                                <span class="symbol">X</span>
+                            </button>
+                            <button class="symbol-option" data-player="2" data-symbol="O">
+                                <span class="symbol">O</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="setup-buttons">
+                    <button class="btn btn-back" id="back-from-two">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button class="btn btn-primary" id="start-game-btn">
+                        <i class="fas fa-play"></i> Start Game
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div class="screen" id="game-screen">
+            <!-- Header -->
+            <div class="header">
+                <h1 id="game-title">Tic-Tac-Toe</h1>
+                <p class="subtitle" id="game-mode-info">Single Player</p>
+            </div>
+
+            <!-- Game Info Section -->
+            <div class="game-info">
+                <!-- Score Board -->
+                <div class="score-board">
+                    <div class="score-item">
+                        <span class="score-label" id="player1-label">You (X)</span>
+                        <span class="score-value" id="player1-score">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Draws</span>
+                        <span class="score-value" id="draw-score">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label" id="player2-label">AI (O)</span>
+                        <span class="score-value" id="player2-score">0</span>
+                    </div>
+                </div>
+
+                <!-- Game Status -->
+                <div class="game-status">
+                    <p id="status-text">Your Turn (X)</p>
+                </div>
+            </div>
+
+            <!-- Game Board - 3x3 Grid -->
+            <div class="game-board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-section">
+                <button class="btn btn-reset" id="reset-btn">
+                    <i class="fas fa-redo"></i> Reset
+                </button>
+                <button class="btn btn-home" id="home-btn">
+                    <i class="fas fa-home"></i> Home
+                </button>
+            </div>
+
+            <!-- AI Thinking -->
+            <div class="ai-thinking" id="ai-thinking">
+                <div class="thinking-spinner"></div>
+                <p>AI is thinking...</p>
+            </div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div class="modal" id="game-over-modal">
+            <div class="modal-content">
+                <h2 id="modal-title">Game Over!</h2>
+                <p id="modal-message">You won!</p>
+                <div class="modal-buttons">
+                    <button class="btn btn-primary" id="play-again-btn">
+                        <i class="fas fa-play"></i> Play Again
+                    </button>
+                    <button class="btn btn-secondary" id="home-from-modal-btn">
+                        <i class="fas fa-home"></i> Home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Tic-Tac-Toe Ultimate © 2024 | Made by Adarsh</p>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
 
 <!DOCTYPE html>
 <html lang="en">
