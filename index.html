@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Tic-Tac-Toe Game</h1>
+            <p class="subtitle">Play vs AI</p>
+        </div>
+
+        <!-- Game Info Section -->
+        <div class="game-info">
+            <!-- Score Board -->
+            <div class="score-board">
+                <div class="score-item">
+                    <span class="score-label">You (X)</span>
+                    <span class="score-value" id="player-score">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">Draws</span>
+                    <span class="score-value" id="draw-score">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">AI (O)</span>
+                    <span class="score-value" id="ai-score">0</span>
+                </div>
+            </div>
+
+            <!-- Game Status -->
+            <div class="game-status">
+                <p id="status-text">Your Turn (X)</p>
+            </div>
+        </div>
+
+        <!-- Game Board - 3x3 Grid -->
+        <div class="game-board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-section">
+            <button class="btn btn-reset" id="reset-btn">
+                <i class="fas fa-redo"></i> Reset Game
+            </button>
+            <button class="btn btn-new-game" id="new-game-btn">
+                <i class="fas fa-plus"></i> New Game
+            </button>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div class="modal" id="game-over-modal">
+            <div class="modal-content">
+                <h2 id="modal-title">Game Over!</h2>
+                <p id="modal-message">You won!</p>
+                <div class="modal-buttons">
+                    <button class="btn btn-primary" id="play-again-btn">
+                        <i class="fas fa-play"></i> Play Again
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Thinking -->
+        <div class="ai-thinking" id="ai-thinking">
+            <div class="thinking-spinner"></div>
+            <p>AI is thinking...</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Tic-Tac-Toe Game © 2024 | Made by Adarsh</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
